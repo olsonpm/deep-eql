@@ -247,8 +247,14 @@ function extensiveDeepEqualByType(leftHandOperand, rightHandOperand, leftHandTyp
  * @return {Boolean} result
  */
 
-function regexpEqual(leftHandOperand, rightHandOperand) {
-  return leftHandOperand.toString() === rightHandOperand.toString();
+function regexpEqual(left, right) {
+  return left.source === right.source &&
+    left.global === right.global &&
+    left.ignoreCase === right.ignoreCase &&
+    left.multiline === right.multiline &&
+    left.lastIndex === right.lastIndex &&
+    left.unicode === right.unicode &&
+    left.sticky === right.sticky;
 }
 
 /*!

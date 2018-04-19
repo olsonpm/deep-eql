@@ -167,6 +167,14 @@ describe('Generic', function () {
       assert(eql(/^/m, /^/i) === false, 'eql(/^/m, /^/i) === false');
     });
 
+    it('returns false given two regexes with different lastIndex', function () {
+      var duckRe = /duck/g;
+      // sets lastIndex of duckRe
+      duckRe.test('duck duck goose');
+
+      assert(eql(duckRe, /duck/g) === false, 'eql(duckRe, /duck/g) === false');
+    });
+
   });
 
   describe('empty types', function () {
