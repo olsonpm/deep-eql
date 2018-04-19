@@ -393,6 +393,22 @@ describe('ES2015 Specific', function () {
 
   });
 
+  describeIf(typeof Buffer === 'function')('buffer', function () {
+
+    it('returns true for arrays with same values', function () {
+      assert(eql(Buffer.from('a'), Buffer.from('a')),
+        'eql(Buffer.alloc(1, \'a\'), Buffer.alloc(1, \'a\'))');
+    });
+
+    it('returns false for arrays with different values', function () {
+      assert(eql(Buffer.from('a'), Buffer.from('b')) === false,
+        'eql(Buffer.from(\'a\'), Buffer.from(\'b\')) === false');
+      assert(eql(Buffer.from('ab'), Buffer.from('ba')) === false,
+        'eql(Buffer.from(\'ab\'), Buffer.from(\'ba\')) === false');
+    });
+
+  });
+
   describeIf(typeof Uint8ClampedArray === 'function')('uint8clampedarray', function () {
 
     it('returns true for arrays with same values', function () {

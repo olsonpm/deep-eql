@@ -210,6 +210,7 @@ function extensiveDeepEqualByType(leftHandOperand, rightHandOperand, leftHandTyp
     case 'Error':
       return leftHandOperand === rightHandOperand;
     case 'Arguments':
+    case 'Buffer':
     case 'Int8Array':
     case 'Uint8Array':
     case 'Uint8ClampedArray':
